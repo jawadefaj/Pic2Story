@@ -9,8 +9,56 @@ from bs4 import BeautifulSoup
 import glob, os
 
 
-os.chdir(r"C:\Users\abjaw\Documents\GitHub\Pic2Story\clean\fairytale")
-f_target=open("combo.txt", "a+")
+os.chdir(r"C:\Users\abjaw\Documents\GitHub\Pic2Story")
+f_temp = open("merged_clean.txt", "r")
+content = f_temp.read()
+f_temp.close()
+content = content.split('\n\n')
+print(len(content))
+pronoun = ["We", "we", "You", "you", "He", "he", "She", "she","It", "it","They", "they", "Him", "him", "Her", "her", "Them", "them"]
+print("Pronoun " + str(len(pronoun)))
+#f_write = open("Output.txt", "a+")
+#os.chdir(r"C:\Users\abjaw\Documents\GitHub\Pic2Story\clean")
+
+for temp in content:
+    count = 1
+    number_of_words = temp.split(" ")
+    number_of_stop = temp.count(".")
+    if number_of_stop > 5:
+        print("++ \n")
+        print(temp)
+
+    """ if len(temp) > 100:
+        for _pronoun in pronoun:
+            if _pronoun in temp:
+                count += temp.count(_pronoun)
+        ratio = len(number_of_words) / count
+        #print("len " + str(len(number_of_words)) + " ratio " + str(ratio))
+        if ratio < 3:
+            print(temp)
+            print("ratio " + str(ratio)) """
+    
+#f_write.close()
+
+
+
+
+""" if '*' in temp:
+        f_write.close()
+        temp = temp.replace("*", "")
+        temp = temp.replace("?", "")
+        temp = temp.replace("\n", "")
+        temp = temp.replace(" ", "")
+        temp = temp + ".txt"
+        print(temp)
+        f_write = open(temp, "a+")
+    else:
+        f_write.write(temp + "\n") """
+
+
+
+
+""" f_target=open("combo.txt", "a+")
 for file in glob.glob("*.txt"):
     print(file)
     f_temp = open(file, "r")
@@ -18,7 +66,7 @@ for file in glob.glob("*.txt"):
     f_temp.close()
     f_target.write(content)
 f_target.close()
-    
+     """
 
 # https://www.cs.cmu.edu/~spok/grimmtmp/002.txt
 
